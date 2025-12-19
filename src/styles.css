@@ -63,6 +63,9 @@ body {
     text-align: left;
     display: grid;
     appearance: none;
+    -webkit-appearance: none;
+    color: black;
+    outline: none;
 }
 
 .card__image {
