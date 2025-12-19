@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --config webpack.config.js",
-    "build": "webpack --config webpack.config.js",
+    "start": "webpack serve --mode development --config webpack.config.js",
+    "build": "webpack webpack --mode production --config webpack.config.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/Mestr3z/ecom.tech-test/issues"
   },
-  "homepage": "https://github.com/Mestr3z/ecom.tech-test#readme",
+  "homepage": "https://mestr3z.github.io/ecom.tech-test",
   "dependencies": {
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
