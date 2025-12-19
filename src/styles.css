@@ -62,6 +62,7 @@ body {
     padding: 0;
     text-align: left;
     display: grid;
+    appearance: none;
 }
 
 .card__image {
