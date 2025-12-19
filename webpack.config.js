@@ -1,46 +1,50 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-module.exports = {
-  mode: "development",
+module.exports = (env, argv) => {
+  const isProd = argv.mode === "production";
 
-  entry: path.resolve(__dirname, "src", "index.tsx"),
+  return {
+    mode: isProd ? "production" : "development",
 
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
-    clean: true,
-    publicPath: "/",
-  },
+    entry: path.resolve(__dirname, "src", "index.tsx"),
 
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
+    output: {
+      path: path.resolve(__dirname, "dist"),
+      filename: "bundle.js",
+      clean: true,
+      publicPath: isProd ? "/ecom.tech-test/" : "/",
+    },
 
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
+    resolve: {
+      extensions: [".tsx", ".ts", ".js"],
+    },
+
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: "ts-loader",
+          exclude: /node_modules/,
+        },
+        {
+          test: /\.css$/,
+          use: ["style-loader", "css-loader"],
+        },
+      ],
+    },
+
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, "src", "public", "index.html"),
+      }),
     ],
-  },
 
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "src", "public", "index.html"),
-    }),
-  ],
-
-  devServer: {
-    port: 8080,
-    open: true,
-    hot: true,
-    historyApiFallback: true,
-  },
+    devServer: {
+      port: 8080,
+      open: true,
+      hot: true,
+      historyApiFallback: true,
+    },
+  };
 };
