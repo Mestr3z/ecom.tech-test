@@ -125,6 +125,9 @@ body {
     width: 36px;
     height: 36px;
     cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    color: black;
 }
 
 .modal__body {
