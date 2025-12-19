@@ -150,6 +150,9 @@ body {
     background: #fff;
     cursor: pointer;
     font-weight: 700;
+    appearance: none;
+    -webkit-appearance: none;
+    color: black;
 }
 
 .modal__buy:hover {
